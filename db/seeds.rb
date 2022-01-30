@@ -30,19 +30,21 @@ puts "Created #{User.count} users!"
 
 print "Creating cafes..."
 
-Cafe.destroy_all
+CafeShop.destroy_all
 
-c1 = Cafe.create!(
+c1 = CafeShop.create!(
     name: 'Matinee',
     location: 'Marrickville'
 )
 
-c2 = Cafe.create!(
+c2 = CafeShop.create!(
     name: 'Cafe 2204',
     location: 'Marrickville'
 )
 
-c1 = Cafe.create!(
+c1 = CafeShop.create!(
     name: 'Seven 2 Four',
     location: 'Marrickville'
 )
+
+puts "Created #{CafeShop.count} cafes!"
