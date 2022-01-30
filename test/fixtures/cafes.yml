@@ -2,8 +2,10 @@
 
 one:
   name: MyString
-  location: MyString
+  city: MyString
+  suburb: MyString
 
 two:
   name: MyString
-  location: MyString
+  city: MyString
+  suburb: MyString

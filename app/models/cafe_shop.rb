@@ -1,2 +1,0 @@
-class CafeShop < ApplicationRecord
-end
