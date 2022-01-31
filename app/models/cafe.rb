@@ -1,4 +1,6 @@
 class Cafe < ApplicationRecord
-    has_and_belongs_to_many :users
     belongs_to :roaster, optional: true
+    has_many :cafe_ratings
+    has_many :users, through: 'cafe_ratings'
+    validates :name, length: {minimum: 2}
 end

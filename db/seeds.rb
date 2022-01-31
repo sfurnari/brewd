@@ -1,51 +1,50 @@
 
-print "Creating cafes..."
-
-Cafe.destroy_all
-
-c1 = Cafe.create!(
-name: 'Matinee',
-city: 'Sydney',
-suburb: 'Marrickville'
-)
-
-c2 = Cafe.create!(
-name: 'Cafe twotwozerofour',
-city: 'Sydney',
-suburb: 'Marrickville'
-)
-
-c1 = Cafe.create!(
-name: 'Seven 2 Four',
-city: 'Sydney',
-suburb: 'Marrickville'
-)
-
-puts "Created #{Cafe.count} cafes!"
-
 print "Creating Roasters..."
 
 Roaster.destroy_all
 
 r1 = Roaster.create!(
 name: 'Deluca Coffee',
-city: 'Sydney',
-suburb: 'Marrickville'
+address: '5-7 Denby St, Marrickville NSW 2204',
 )
 
 r2 = Roaster.create!(
 name: 'Campos Coffee',
-city: 'Sydney',
-suburb: 'Banksmeadow'
+address: '16 Baker St, Banksmeadow NSW 2019',
 )
 
-r1 = Roaster.create!(
+r3 = Roaster.create!(
 name: 'Di Lorenzo Coffee',
-city: 'Sydney',
-suburb: 'Marrickville'
+address: '33-35 Marrickville Rd, Marrickville NSW 2204',
 )
 
 puts "Created #{Roaster.count} Roasters!"
+
+print "Creating cafes..."
+
+Cafe.destroy_all
+
+c1 = Cafe.create!(
+name: 'Matinee',
+address: '23-29 Addison Rd, Marrickville NSW 2204',
+roaster_id: r3.id
+)
+
+c2 = Cafe.create!(
+name: 'Cafe twotwozerofour',
+address: '106 Addison Rd, Marrickville NSW 2204',
+roaster_id: r1.id
+)
+
+c3 = Cafe.create!(
+name: 'Seven 2 Three Specialty Coffee',
+address: '128 Addison Rd, Marrickville NSW 2204',
+roaster_id: r1.id
+)
+
+puts "Created #{Cafe.count} cafes!"
+# puts "#{c1.name} uses coffee beans from #{c1.roaster.name}"
+# puts "#{r1.name} supplies beans to #{r1.cafes.pluck(:name).join(', ')}"
 
 print "Creating users..."
 
@@ -80,8 +79,59 @@ photo_url: 'https://www.hopkinsmedicine.org/-/media/images/health/3_-wellness/he
 
 puts "Created #{User.count} users!"
 
-u1.cafes << c1 << c2
-u2.cafes << c1
+print "Creating cafe ratings..."
 
-puts "#{u1.name} has been to #{u1.cafes.pluck(:name).join(', ')}"
-puts "#{c1.name} has had these visitors: #{c1.users.pluck(:name).join(', ')}"
+CafeRating.destroy_all
+
+cr1 = CafeRating.create!(
+    user_id: u1.id,
+    cafe_id: c1.id,
+    rating: 2,
+    review: "food was shit"
+)
+
+cr2 = CafeRating.create!(
+    user_id: u1.id,
+    cafe_id: c2.id,
+    rating: 4,
+    review: "it was pretty good"
+)
+
+cr3 = CafeRating.create!(
+    user_id: u1.id,
+    cafe_id: c3.id,
+    rating: 5,
+    review: "best coffee in sydney"
+)
+
+puts "Created #{CafeRating.count} cafe reviews"
+
+# puts "User #{u1.name} has #{u1.cafe_ratings.count} cafe reviews"
+# puts "Cafe #{c2.name} got a review from #{c2.cafe_ratings}"
+
+print "Creating roaster ratings..."
+
+RoasterRating.destroy_all
+
+cr1 = RoasterRating.create!(
+    user_id: u1.id,
+    roaster_id: r1.id,
+    rating: 2,
+    review: "shit beans"
+)
+
+cr2 = RoasterRating.create!(
+    user_id: u1.id,
+    roaster_id: r2.id,
+    rating: 4,
+    review: "good, but slightly bitter"
+)
+
+cr3 = RoasterRating.create!(
+    user_id: u1.id,
+    roaster_id: r3.id,
+    rating: 5,
+    review: "best coffee in sydney"
+)
+
+puts "Created #{RoasterRating.count} roaster reviews"

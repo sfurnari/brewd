@@ -10,28 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_30_041845) do
+ActiveRecord::Schema.define(version: 2022_01_31_064630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cafes", force: :cascade do |t|
     t.string "name"
-    t.string "city"
-    t.string "suburb"
+    t.string "address"
+    t.integer "roaster_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "cafes_users", force: :cascade do |t|
-    t.integer "cafe_id"
+  create_table "cafes_rating", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "cafe_id"
+    t.integer "rating"
+    t.text "review"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roaster_ratings", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "roaster_id"
+    t.integer "rating"
+    t.text "review"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roasters", force: :cascade do |t|
     t.string "name"
-    t.string "city"
-    t.string "suburb"
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,30 @@
+<% if @cafe.errors.any?%>
+    <ul>
+        <% @cafe.errors.full_messages.each do |e| %>
+        <li>
+            <%= e %>
+        </li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_with model: @cafe, local: true do |f| %>
+
+    <%= f.label :name %>
+    <br>
+    <%= f.text_field :name %>
+    <br><br>
+    
+    <%= f.label :city %>
+    <br>
+    <%= f.text_field :city %>
+    <br><br>
+
+    <%= f.label :suburb %>
+    <br>
+    <%= f.text_field :suburb %>
+    <br><br>
+
+    <%= f.submit 'Add new Cafe' %>
+
+<% end %>

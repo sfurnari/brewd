@@ -10,6 +10,26 @@
   </head>
 
   <body>
+    <nav>
+      <div class="menu_options">
+        <%= link_to 'Cafes', cafes_path %> 
+      </div>
+      <div class="login">
+        <% if @current_user.present? %>
+          <%= link_to 'Add Cafe', new_cafe_path %>
+          | 
+          Signed in as: <%= @current_user.name %> 
+          |
+          <%= link_to 'Logout', login_path, method: 'delete' %>
+        <% else %>
+          <%= link_to 'Login', login_path %>
+          |
+          <%= link_to 'Sign Up', '/does-not-exist-yet' %>
+          |
+        <% end %>
+      </div>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
