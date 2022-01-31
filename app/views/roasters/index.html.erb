@@ -1,2 +1,10 @@
-<h1>Roasters#index</h1>
-<p>Find me in app/views/roasters/index.html.erb</p>
+<h3>All Roasters</h3>
+
+<ul>
+
+    <% @roasters.each do |c|%>
+        <li>
+            <%= link_to c.name, roaster_path(c) %>
+        </li>
+    <% end%>
+</ul>

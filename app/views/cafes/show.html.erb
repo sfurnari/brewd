@@ -1,2 +1,41 @@
-<h1>Cafes#show</h1>
-<p>Find me in app/views/cafes/show.html.erb</p>
+<h3>
+    <%= @cafe.name %>
+</h3>
+<div class="address">
+    <p>
+        <%= @cafe.address %>
+    </p>
+    <% if @cafe.roaster%>
+    <p>
+        Bean Supplier: <%= link_to "#{@cafe.roaster.name}", roaster_path(@cafe.roaster.id) %>
+    </p>
+    <% end %>
+</div>
+<hr>
+
+<div class="show-visits">
+    <p>
+        Recent Check-Ins:
+        <br>
+        <br>
+        <% @cafe.users.each do |u| %>
+            <%= link_to "#{u.name}", user_path(u.id) %>
+            <br>
+            <% currentuser = u.cafe_ratings  %>
+            <% rating = currentuser.where(cafe_id: params[:id]).to_a %>
+            Rating: <%= rating.pluck(:rating).join() %> / 5
+            <br>
+            Review: <%= rating.pluck(:review).join() %>
+            <br>
+            <%= rating.pluck(:created_at).join() %>
+            <br>
+            <br>
+        <% end %>
+    </p>
+</div>
+<hr>
+    <% if @current_user.present? && @current_user.admin %>
+        <%= link_to 'Edit', edit_cafe_path(@cafe) %>
+        |
+        <%= link_to 'Delete', cafe_path(@cafe), method: 'delete' %>
+    <% end%>

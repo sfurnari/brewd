@@ -51,6 +51,7 @@ print "Creating users..."
 User.destroy_all
 
 u1 = User.create!(
+admin: true,
 email: 's.furnari@hotmail.com',
 password: 'chicken',
 name: 'Steve',
@@ -91,8 +92,8 @@ cr1 = CafeRating.create!(
 )
 
 cr2 = CafeRating.create!(
-    user_id: u1.id,
-    cafe_id: c2.id,
+    user_id: u2.id,
+    cafe_id: c1.id,
     rating: 4,
     review: "it was pretty good"
 )

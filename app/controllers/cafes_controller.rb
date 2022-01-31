@@ -7,18 +7,9 @@ class CafesController < ApplicationController
   end
 
   def create
-    @cafe = Cafe.new @cafe_params
-    # @cafe.user_id = @current_user.id
-    @cafe.save
-    
-    if @cafe.persisted?
-      @cafe.users << @current_user
-      redirect_to cafes_path
-    else
-      render :new
-    end
+    Cafe.create cafe_params
 
-    
+    redirect_to cafes_path
   end
 
   def index
@@ -26,9 +17,30 @@ class CafesController < ApplicationController
   end
 
   def show
+    @cafe = Cafe.find params[:id]
   end
 
   def edit
     @cafe = Cafe.find params[:id]
+  end
+
+  def update
+    cafe = Cafe.find params[:id]
+    cafe.update! cafe_params
+    redirect_to cafe_path(params[:id])
+  end
+
+  def destroy
+    Cafe.destroy params[:id]
+    redirect_to cafes_path
+  end
+
+  private
+  def cafe_params
+    params.require(:cafe).permit(
+      :name,
+      :address,
+      :roaster_id
+    )
   end
 end

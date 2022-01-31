@@ -1,2 +1,46 @@
-<h1>Roasters#show</h1>
-<p>Find me in app/views/roasters/show.html.erb</p>
+<h3>
+    <%= @roaster.name %>
+</h3>
+<div class="address">
+    <p>
+        <%= @roaster.address %>
+    </p>
+</div>
+<hr>
+Cafes Supplied:
+<ul>
+    <% @roaster.cafes.each do |c|%>
+        <li>
+            <%= link_to c.name, cafe_path(c) %>
+        </li>
+    <% end%>
+</ul>
+
+<hr>
+
+<div id="show-visits">
+    <p>
+        Recent Ratings:
+        <br>
+        <br>
+        <% @roaster.users.each do |u| %>
+            <%= link_to "#{u.name}", user_path(u.id) %>
+            <br>
+            <% currentuser = u.roaster_ratings  %>
+            <% rating = currentuser.where(roaster_id: params[:id]).to_a %>
+            Rating: <%= rating.pluck(:rating).join() %> / 5
+            <br>
+            Review: <%= rating.pluck(:review).join() %>
+            <br>
+            <%= rating.pluck(:created_at).join() %>
+            <br>
+            <br>
+        <% end %>
+    </p>
+</div>
+<hr>
+    <% if @current_user.present? && @current_user.admin %>
+        <%= link_to 'Edit', edit_roaster_path(@roaster.id) %>
+        |
+        <%= link_to 'Delete', roaster_path(@roaster), method: 'delete' %>
+    <% end%>

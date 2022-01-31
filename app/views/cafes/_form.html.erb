@@ -10,21 +10,21 @@
 
 <%= form_with model: @cafe, local: true do |f| %>
 
-    <%= f.label :name %>
+    <%= f.label :name, 'Cafe Name'%>
     <br>
     <%= f.text_field :name %>
     <br><br>
     
-    <%= f.label :city %>
+    <%= f.label :address %>
     <br>
-    <%= f.text_field :city %>
+    <%= f.text_field :address %>
     <br><br>
 
-    <%= f.label :suburb %>
+    <%= f.label :roaster_id, 'Roaster (leave blank if none)' %>
     <br>
-    <%= f.text_field :suburb %>
+    <%= f.collection_select :roaster_id, Roaster.all, :id, :name, include_blank: true %>
     <br><br>
 
-    <%= f.submit 'Add new Cafe' %>
+    <%= f.submit %>
 
 <% end %>

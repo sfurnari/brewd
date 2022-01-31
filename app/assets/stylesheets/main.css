@@ -1,0 +1,13 @@
+body {
+    font-family: 'Lucida Sans', sans-serif;
+    color: chocolate;
+    background-color: rgb(36, 36, 36);
+}
+
+a {
+    color: goldenrod;
+}
+
+hr {
+    background-color: rgb(231, 0, 0);
+}
