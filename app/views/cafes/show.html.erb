@@ -5,9 +5,10 @@
     <p>
         <%= @cafe.address %>
     </p>
+    <iframe width="350" height="250" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=<%= @cafe.address %>&key=AIzaSyCdE635lhPuKadi5SMfYwPrwZkG27OZ-d4"></iframe>
     <% if @cafe.roaster%>
     <p>
-        Bean Supplier: <%= link_to "#{@cafe.roaster.name}", roaster_path(@cafe.roaster.id) %>
+        Coffee Supplier: <%= link_to "#{@cafe.roaster.name}", roaster_path(@cafe.roaster.id) %>
     </p>
     <% end %>
 </div>

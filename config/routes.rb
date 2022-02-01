@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
+  get '/search' => "pages#search"
   resources :users, :cafes, :roasters
   get '/login' => 'session#new' # show login form
   post '/login' => 'session#create' # form submits, performs login, redirects
