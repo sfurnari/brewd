@@ -82,30 +82,30 @@ puts "Created #{User.count} users!"
 
 print "Creating cafe ratings..."
 
-CafeRating.destroy_all
+RatingCafe.destroy_all
 
-cr1 = CafeRating.create!(
+cr1 = RatingCafe.create!(
     user_id: u1.id,
     cafe_id: c1.id,
     rating: 2,
     review: "food was shit"
 )
 
-cr2 = CafeRating.create!(
+cr2 = RatingCafe.create!(
     user_id: u2.id,
     cafe_id: c1.id,
     rating: 4,
     review: "it was pretty good"
 )
 
-cr3 = CafeRating.create!(
+cr3 = RatingCafe.create!(
     user_id: u1.id,
     cafe_id: c3.id,
     rating: 5,
     review: "best coffee in sydney"
 )
 
-puts "Created #{CafeRating.count} cafe reviews"
+puts "Created #{RatingCafe.count} cafe reviews"
 
 # puts "User #{u1.name} has #{u1.cafe_ratings.count} cafe reviews"
 # puts "Cafe #{c2.name} got a review from #{c2.cafe_ratings}"

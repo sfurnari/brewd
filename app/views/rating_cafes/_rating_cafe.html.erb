@@ -1,0 +1,16 @@
+
+<p>
+    <% user = User.find rating_cafe.user_id %>
+    <%= link_to "#{user.name}", user %>
+    <br>
+    Rating: <%= rating_cafe.rating %> / 5
+    <br>
+    "<%= rating_cafe.review %>"
+</p>
+
+
+<% if @current_user.present? && rating_cafe.user_id == @current_user.id %>
+    <%= link_to 'Edit', edit_cafe_rating_cafe_path(rating_cafe.cafe, rating_cafe) %>
+    |
+    <%= link_to 'Delete', cafe_rating_cafe_path(rating_cafe.cafe, rating_cafe), method: :delete %>
+<% end %>

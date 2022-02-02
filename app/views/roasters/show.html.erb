@@ -19,24 +19,14 @@ Cafes Supplied:
 
 <hr>
 
-<div id="show-visits">
+<div class="new-review">
+    <%= link_to "Add new Rating", new_roaster_roaster_rating_path(@roaster) %>
+</div>
+
+<div class="show-visits">
     <p>
-        Recent Ratings:
-        <br>
-        <br>
-        <% @roaster.users.each do |u| %>
-            <%= link_to "#{u.name}", user_path(u.id) %>
-            <br>
-            <% currentuser = u.roaster_ratings  %>
-            <% rating = currentuser.where(roaster_id: params[:id]).to_a %>
-            Rating: <%= rating.pluck(:rating).join() %> / 5
-            <br>
-            Review: <%= rating.pluck(:review).join() %>
-            <br>
-            <%= rating.pluck(:created_at).join() %>
-            <br>
-            <br>
-        <% end %>
+        Recent Reviews:
+        <%= render @roaster.roaster_ratings %>
     </p>
 </div>
 <hr>

@@ -1,0 +1,8 @@
+<%=  simple_form_for([@roaster, @roaster.roaster_ratings.build]) do |f| %>
+    Rate
+    <%= f.number_field :rating, {min: 0, max: 5} %> / 5
+    <br>
+    <br>
+    <%= f.input :review %>
+    <%= f.button :submit, "Submit" %>
+<% end %>

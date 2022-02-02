@@ -1,0 +1,16 @@
+
+<p>
+    <% user = User.find roaster_rating.user_id %>
+    <%= link_to "#{user.name}", user %>
+    <br>
+    Rating: <%= roaster_rating.rating %> / 5
+    <br>
+    "<%= roaster_rating.review %>"
+</p>
+
+
+<% if @current_user.present? && roaster_rating.user_id == @current_user.id %>
+    <%= link_to 'Edit', edit_roaster_roaster_rating_path(roaster_rating.roaster, roaster_rating) %>
+    |
+    <%= link_to 'Delete', roaster_roaster_rating_path(roaster_rating.roaster, roaster_rating), method: :delete %>
+<% end %>

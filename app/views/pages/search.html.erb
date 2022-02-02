@@ -1,19 +1,19 @@
 <h3>Search Results</h3>
 
 <% @matchcafe.each do |c| %>
-    <%= link_to c.name, cafe_path(c.id) %>
+    <%= link_to c.name, cafe_path(c.id) %> - cafe
     <br>
     <hr>
 <% end %>
 
 <% @matchroaster.each do |r| %>
-    <%= link_to r.name, roaster_path(r.id) %>
+    <%= link_to r.name, roaster_path(r.id) %> - roaster
     <br>
     <hr>
 <% end %>
 
 <% @matchuser.each do |u| %>
-    <%= link_to u.name, user_path(u.id) %>
+    <%= link_to u.name, user_path(u.id) %> - user
     <br>
     <hr>
 <% end %>

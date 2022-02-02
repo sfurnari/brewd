@@ -1,2 +1,41 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<%= form_with model: @user, local: true, html: {multipart: true} do |f| %>
+
+    <%= f.label :email, "Email Address" %>
+    <br>
+    <%= f.text_field :email %>
+    <br><br>
+
+    <%= f.label :password %>
+    <br>
+    <%= f.password_field :password %>
+    <br><br>
+
+    <%= f.label :password, "Confirm Password" %>
+    <br>
+    <%= f.password_field :password_confirmation %>
+    <br><br>
+ 
+    <%= f.label :name %>
+    <br>
+    <%= f.text_field :name %>
+    <br><br>
+    
+    <%= f.label :city %>
+    <br>
+    <%= f.text_field :city %>
+    <br><br>
+    
+    <%= f.label :suburb %>
+    <br>
+    <%= f.text_field :suburb %>
+    <br><br>
+  
+    <%= f.label :photo_url %>
+    <br>
+    <%= f.file_field :photo_url %>
+    <br><br>
+
+
+    <%= f.submit %>
+
+<% end %>

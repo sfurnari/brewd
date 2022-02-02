@@ -2,9 +2,9 @@
 
 <ul>
 
-    <% @roasters.each do |c|%>
+    <% @roasters.each do |r|%>
         <li>
-            <%= link_to c.name, roaster_path(c) %>
+            <%= link_to r.name, roaster_path(r) %> - <%= r.address %>
         </li>
     <% end%>
 </ul>

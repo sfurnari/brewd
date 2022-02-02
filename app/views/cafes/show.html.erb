@@ -14,24 +14,14 @@
 </div>
 <hr>
 
+<div class="new-review">
+    <%= link_to "Add new Rating", new_cafe_rating_cafe_path(@cafe) %>
+</div>
+
 <div class="show-visits">
     <p>
-        Recent Check-Ins:
-        <br>
-        <br>
-        <% @cafe.users.each do |u| %>
-            <%= link_to "#{u.name}", user_path(u.id) %>
-            <br>
-            <% currentuser = u.cafe_ratings  %>
-            <% rating = currentuser.where(cafe_id: params[:id]).to_a %>
-            Rating: <%= rating.pluck(:rating).join() %> / 5
-            <br>
-            Review: <%= rating.pluck(:review).join() %>
-            <br>
-            <%= rating.pluck(:created_at).join() %>
-            <br>
-            <br>
-        <% end %>
+        Recent Reviews:
+        <%= render @cafe.rating_cafes %>
     </p>
 </div>
 <hr>

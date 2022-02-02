@@ -50,3 +50,7 @@ group :test do
 end
 
 gem 'pry-rails'
+
+gem 'simple_form'
+
+gem 'cloudinary'

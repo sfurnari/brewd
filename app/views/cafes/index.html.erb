@@ -4,7 +4,7 @@
 
     <% @cafes.each do |c|%>
         <li>
-            <%= link_to c.name, cafe_path(c) %>
+            <%= link_to c.name, cafe_path(c) %> - <%= c.address %>
         </li>
     <% end%>
 </ul>

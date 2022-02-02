@@ -1,0 +1,10 @@
+<h3>Edit Review</h3>
+
+<%= simple_form_for([@roaster, @review]) do |f| %>
+    Rate
+    <%= f.number_field :rating, {min: 0, max: 5} %> / 5
+    <br>
+    <br>
+    <%= f.input :review %>
+    <%= f.button :submit, "Submit" %>
+<% end %>
