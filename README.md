@@ -1,24 +1,24 @@
-# README
+# **brewd.**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+## [Link](https://arcane-anchorage-52778.herokuapp.com/)
+##### brewd. (v1.0) - By Steven Furnari
+![home page](app/assets/images/home.png)
 
-* System dependencies
+## **Project**
 
-* Configuration
+The aim of this project was to build a working, full-stack website using Rails with ActiveRecord.
+The back-end has multiple models to represent the data using RESTful routes and hosted online using Heroku.
 
-* Database creation
 
-* Database initialization
+## **Description**
 
-* How to run the test suite
+A simple website where users can view, rate and add their favourite cafes and coffee roasters.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
+## **Future Updates**
+Future updates will include -
+- User follow system
+- Embedded maps, with multiple markers
+- Check-in system when visiting cafes
