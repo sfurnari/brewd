@@ -44,7 +44,7 @@
 
 
 <div class="admin-controls">
-    <% if @current_user == @user || @current_user.admin %>
+    <% if @current_user == @user %>
         <%= link_to 'Edit', edit_user_path(@user) %>
         |
         <%= link_to 'Delete', user_path(@user), method: 'delete' %>
