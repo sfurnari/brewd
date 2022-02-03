@@ -1,0 +1,54 @@
+
+.vl {
+    display: inline-block;
+    border-left: 2px solid rgb(255, 255, 255);
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    top: 82vh;
+}
+.img-wrapper {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: chocolate 2px solid;
+    margin-top: 20px;
+}
+.img-wrapper img {
+    width: auto;
+    height: 100%;
+    margin-left: -70px;
+}
+
+.user-container {
+    position: relative;
+    text-align: center;
+}
+
+.admin-controls {
+    text-align: center;
+    position: relative;
+    top: 40vh;
+}
+
+.cafe-reviews {
+    display: inline-block;
+    width: 540px;
+    text-align: center;
+    margin: 0px;
+}
+
+.roaster-reviews {
+    display: inline-block;
+    white-space: nowrap;
+    width: 540px;
+    text-align: center;
+    margin: 0px;
+}
+
+h4 {
+    text-decoration: underline;
+}

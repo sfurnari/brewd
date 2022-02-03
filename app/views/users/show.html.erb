@@ -1,31 +1,52 @@
-<h1><%= @user.name %></h1>
-<p><%= @user.suburb %>, <%= @user.city %></p>
 
-<%= cl_image_tag @user.photo_url %>
+<div class="user-container">
+    <div class="img-wrapper">
+        <%= cl_image_tag @user.photo_url %>
+    </div>
+    <h1><%= @user.name %></h1>
+    <p><%= @user.suburb %>, <%= @user.city %></p>
+</div>
 
-<div class="review-controller">
+<hr>
+
+<div class="vl"></div>
+<div class="cafe-reviews">
     <h4>
-        Recent Reviews:
+    Recent Cafe Reviews:
     </h4>
-    <p>
-        <% @user.rating_cafes.each do |r| %>
-            <% cafe = Cafe.find r.cafe_id %>
-            <%= link_to "#{cafe.name}", cafe_path(r.cafe_id) %>
-            <br>
-            Rating:
-            <%= r.rating %> / 5
-            <br>
-            "<%= r.review %>"
-            <br><br>
-        <% end%>
-    </p>
+    <% @user.rating_cafes.each do |r| %>
+        <% cafe = Cafe.find r.cafe_id %>
+        <%= link_to "#{cafe.name}", cafe_path(r.cafe_id) %>
+        <br>
+        Rating:
+        <%= r.rating %> / 5
+        <br>
+        "<%= r.review %>"
+        <br><br>
+    <% end%>
+</div>
+<div class="roaster-reviews">
+    <h4>
+    Recent Roaster Reviews:
+    </h4>
+    <% @user.roaster_ratings.each do |r| %>
+        <% roaster = Roaster.find r.roaster_id %>
+        <%= link_to "#{roaster.name}", roaster_path(r.roaster_id) %>
+        <br>
+        Rating:
+        <%= r.rating %> / 5
+        <br>
+        "<%= r.review %>"
+        <br><br>
+    <% end%>
 </div>
 
 
 
-
-<% if @current_user.present? && @current_user.admin %>
-    <%= link_to 'Edit', edit_user_path(@user) %>
-    |
-    <%= link_to 'Delete', user_path(@user), method: 'delete' %>
-<% end%>
+<div class="admin-controls">
+    <% if @current_user.present? && @current_user.admin %>
+        <%= link_to 'Edit', edit_user_path(@user) %>
+        |
+        <%= link_to 'Delete', user_path(@user), method: 'delete' %>
+    <% end%>
+</div>
