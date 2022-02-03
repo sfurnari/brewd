@@ -1,12 +1,14 @@
+<% user = User.find rating_cafe.user_id %>
+<% if user.present? %>
+    <p>
+        <%= link_to "#{user.name}", user %>
+        <br>
+        Rating: <%= rating_cafe.rating %> / 5
+        <br>
+        "<%= rating_cafe.review %>"
+    </p>
+<% end %>
 
-<p>
-    <% user = User.find rating_cafe.user_id %>
-    <%= link_to "#{user.name}", user %>
-    <br>
-    Rating: <%= rating_cafe.rating %> / 5
-    <br>
-    "<%= rating_cafe.review %>"
-</p>
 
 
 <% if @current_user.present? && rating_cafe.user_id == @current_user.id %>
