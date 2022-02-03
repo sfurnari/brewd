@@ -1,9 +1,10 @@
-<h3>All Users</h3>
-
+<div class="index-header">    
+    <h2>All Users</h2>
+</div>
 <div class="user-index">
     <ul>
         <% @users.each do |u|%>
-            <li>
+            <li class="user-list">
                 <div class="index-img">
                     <%= link_to cl_image_tag(u.photo_url), user_path(u) %>
                 </div>

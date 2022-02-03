@@ -2,7 +2,7 @@
 .vl {
     display: inline-block;
     border-left: 2px solid rgb(255, 255, 255);
-    height: 500px;
+    height: 40vh;
     position: absolute;
     left: 50%;
     top: 82vh;
@@ -30,30 +30,24 @@
 
 .admin-controls {
     text-align: center;
-    position: relative;
+    position: absolute;
     top: 40vh;
+
 }
 
 .cafe-reviews {
-    display: inline-block;
+    float: left;
     width: 48vw;
     text-align: center;
-    margin: auto;
 }
 
 .roaster-reviews {
-    display: inline-block;
+    float: right;
     width: 48vw;
     text-align: center;
-    margin: auto;
 }
 
 h4 {
-    text-decoration: underline;
-}
-
-h3 {
-    text-align: center;
     text-decoration: underline;
 }
 
@@ -80,4 +74,10 @@ h3 {
 .index-name {
     position: relative;
     
+}
+
+.user-list {
+    max-width: 30vw;
+    display: inline-block;
+    padding: 20px 30px;
 }

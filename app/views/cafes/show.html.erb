@@ -1,4 +1,4 @@
-<h3>
+<h3 class="name">
     <%= @cafe.name %>
 </h3>
 <div class="address">
@@ -6,7 +6,6 @@
         <%= @cafe.address %>
     </p>
 </div>
-    <iframe width="350" height="250" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=<%= @cafe.address %>&key=AIzaSyCdE635lhPuKadi5SMfYwPrwZkG27OZ-d4"></iframe>
     <% if @cafe.roaster%>
     <p>
         Coffee Supplier: <%= link_to "#{@cafe.roaster.name}", roaster_path(@cafe.roaster.id) %>
@@ -15,7 +14,9 @@
 <hr>
 
 <div class="new-review">
-    <%= link_to "Add new Rating", new_cafe_rating_cafe_path(@cafe) %>
+    <% if @current_user.present? %>
+        <%= link_to "Add new Rating", new_cafe_rating_cafe_path(@cafe) %>
+    <% end %>
 </div>
 
 <div class="show-visits">
@@ -25,6 +26,9 @@
     </p>
 </div>
 <hr>
+<div class="map">
+    <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=<%= @cafe.address %>&key=AIzaSyCdE635lhPuKadi5SMfYwPrwZkG27OZ-d4"></iframe>
+</div>
     <% if @current_user.present? && @current_user.admin %>
         <%= link_to 'Edit', edit_cafe_path(@cafe) %>
         |

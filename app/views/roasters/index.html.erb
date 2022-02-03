@@ -1,10 +1,11 @@
-<h3>All Roasters</h3>
-
+<div class="index-header">
+    <h2>All Roasters</h2>
+</div>
 <ul>
-
     <% @roasters.each do |r|%>
         <li>
             <%= link_to r.name, roaster_path(r) %> - <%= r.address %>
         </li>
+        <br>
     <% end%>
 </ul>

@@ -9,10 +9,10 @@
     background-color: #f5f5f5;
     position: relative;
     top: 15vh;
-    left: 25vw;
+    left: 5vw;
 }
 
-button {
+.search-button {
     background-color: chocolate;
     color: rgb(255, 255, 255);
     font-size: 18px;
@@ -21,20 +21,14 @@ button {
     height: 30px;
     width: 10%;
     position: relative;
-    left: -5%;
+    left: -25vw;
     top: 25vh;
     cursor: pointer;
 
 }
 
-button:hover {
+.button:hover {
     background-color: #d8a518;
     color: white;
     transition-duration: 0.4s
-}
-
-footer {
-    text-align: center;
-    position: relative;
-    top: 48vh;
 }

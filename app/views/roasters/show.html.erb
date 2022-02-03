@@ -1,4 +1,5 @@
-<h3>
+
+<h3 class="name">
     <%= @roaster.name %>
 </h3>
 <div class="address">
@@ -6,7 +7,6 @@
         <%= @roaster.address %>
     </p>
 </div>
-    <iframe width="350" height="250" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=<%= @roaster.address %>&key=AIzaSyCdE635lhPuKadi5SMfYwPrwZkG27OZ-d4"></iframe>
 <hr>
 Cafes Supplied:
 <ul>
@@ -20,7 +20,9 @@ Cafes Supplied:
 <hr>
 
 <div class="new-review">
-    <%= link_to "Add new Rating", new_roaster_roaster_rating_path(@roaster) %>
+    <% if @current_user.present? %> 
+        <%= link_to "Add new Rating", new_roaster_roaster_rating_path(@roaster) %>
+    <% end %>
 </div>
 
 <div class="show-visits">
@@ -30,8 +32,13 @@ Cafes Supplied:
     </p>
 </div>
 <hr>
+<div class="map">
+    <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=<%= @roaster.address %>&key=AIzaSyCdE635lhPuKadi5SMfYwPrwZkG27OZ-d4"></iframe>
+</div>
+<div class="admin-controls">
     <% if @current_user.present? && @current_user.admin %>
         <%= link_to 'Edit', edit_roaster_path(@roaster.id) %>
         |
         <%= link_to 'Delete', roaster_path(@roaster), method: 'delete' %>
     <% end%>
+</div>

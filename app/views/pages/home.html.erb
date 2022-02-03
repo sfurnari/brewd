@@ -3,5 +3,5 @@
 
 <%= form_tag(search_path, :method => "get") do %>
     <%= search_field_tag :search, params[:search], placeholder: "Search for Cafes, Roasters or Users" %>
-    <%= button_tag "Search" %>
+    <%= button_tag "Search", class: 'search-button' %>
 <% end %>
