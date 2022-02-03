@@ -36,19 +36,48 @@
 
 .cafe-reviews {
     display: inline-block;
-    width: 540px;
+    width: 48vw;
     text-align: center;
-    margin: 0px;
+    margin: auto;
 }
 
 .roaster-reviews {
     display: inline-block;
-    white-space: nowrap;
-    width: 540px;
+    width: 48vw;
     text-align: center;
-    margin: 0px;
+    margin: auto;
 }
 
 h4 {
     text-decoration: underline;
+}
+
+h3 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.user-index li {
+    list-style-type: none;
+    text-align: center;
+}
+.index-img {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: chocolate 2px solid;
+    margin-top: 20px;
+}
+.index-img img {
+    width: auto;
+    height: 100%;
+    margin-left: -20px;
+}
+
+.index-name {
+    position: relative;
+    
 }

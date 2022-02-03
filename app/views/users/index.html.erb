@@ -1,10 +1,17 @@
 <h3>All Users</h3>
 
-<ul>
-    <% @users.each do |u|%>
-        <li>
-            <%= link_to cl_image_tag(u.photo_url), user_path(u) %>
-            <%= link_to u.name, user_path(u) %>
-        </li>
-    <% end%>
-</ul>
+<div class="user-index">
+    <ul>
+        <% @users.each do |u|%>
+            <li>
+                <div class="index-img">
+                    <%= link_to cl_image_tag(u.photo_url), user_path(u) %>
+                </div>
+                <div class="index-name">
+                    <%= link_to u.name, user_path(u) %> (<%= u.suburb %>, <%= u.city %>) 
+                </div>
+                <hr>
+            </li>
+        <% end%>
+    </ul>
+</div>
